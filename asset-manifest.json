@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/portofolio/static/css/main.85e7f3e7.css",
+    "main.js": "/portofolio/static/js/main.26fd03c6.js",
+    "static/media/landing6.PNG": "/portofolio/static/media/landing6.4a295ea25e955d8bafd7.PNG",
+    "static/media/landing2.PNG": "/portofolio/static/media/landing2.864ec2c8ff7b62490c4c.PNG",
+    "static/media/pic1.jpg": "/portofolio/static/media/pic1.ebc4b61450c48d2900f7.jpg",
+    "static/media/thunder.PNG": "/portofolio/static/media/thunder.d71798067687ba2c08a0.PNG",
+    "static/media/landing1.PNG": "/portofolio/static/media/landing1.9d96267c152cf3b5e4e3.PNG",
+    "static/media/landing4.PNG": "/portofolio/static/media/landing4.af40863d7ede333c6a89.PNG",
+    "static/media/landing7.PNG": "/portofolio/static/media/landing7.b9cdfbf0d30a6030734b.PNG",
+    "static/media/landing3.PNG": "/portofolio/static/media/landing3.51a4c372bbd900f79a07.PNG",
+    "static/media/landing5.PNG": "/portofolio/static/media/landing5.6dfaf846f1401bf7bc02.PNG",
+    "static/media/logoImage.PNG": "/portofolio/static/media/logoImage.80cf65ce818b37e65bcc.PNG",
+    "static/media/Abdologo.svg": "/portofolio/static/media/Abdologo.b28e6805cf6f431f8cd4ad3ac6c81d68.svg",
+    "index.html": "/portofolio/index.html",
+    "main.85e7f3e7.css.map": "/portofolio/static/css/main.85e7f3e7.css.map",
+    "main.26fd03c6.js.map": "/portofolio/static/js/main.26fd03c6.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.85e7f3e7.css",
+    "static/js/main.26fd03c6.js"
+  ]
+}
