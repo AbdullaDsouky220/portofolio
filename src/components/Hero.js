@@ -1,10 +1,26 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-
+import {motion} from 'framer-motion'
 function Hero() {
-
+  const divVariant={
+    hidden:{
+      opacity:0,
+      scale:0
+    },
+    show:{
+      opacity:1,  
+      transitoin:{
+        duration:3
+      },
+      scale:1
+    }
+  }
   return (
-    <div className='text-white flex flex-col gap-6 font-fira px-6  md:px-12 '>
+    <motion.div 
+    variants={divVariant}
+    initial='hidden'
+    animate='show'
+    className='text-white flex flex-col gap-6 font-fira px-6  md:px-12 '>
         <p className='text-primary font-mono'>
             Hi , my name is 
         </p>
@@ -26,12 +42,10 @@ function Hero() {
       </p>
       <p className='btn max-w-fit cursor-pointer' onClick={()=>    window.open('mailto:abdodsouky0@gmail.com?subject=Subject&body=Body%20goes%20here')
 }>
-      
        Say Hello 🤗🤗
-       
-        
+               
       </p>
-    </div>
+    </motion.div>
   )
 }
 

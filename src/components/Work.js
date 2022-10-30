@@ -9,7 +9,7 @@ import landing4  from '../assets/landing4.PNG';
 import landing5  from '../assets/landing5.PNG';
 import landing6  from '../assets/landing6.PNG';
 import landing7  from '../assets/landing7.PNG';
-import {motion} from 'framer-motion';
+import {motion, useSpring} from 'framer-motion';
 import CardProject from './CardProject';
 function Work () {
   const projects = [
@@ -97,8 +97,52 @@ function Work () {
   const changeCurrentLink=(link)=>{
     window.location.href=link
   }
+  const left ={
+    hidden:{
+      opacity:0,
+     x:100,
+    },
+    show:{
+      opacity:1,
+      x:0,
+      transition:{
+        duration:1.4,
+       type:'spring',
+       stiffness: 300
+      }
+    },
+  }
+  const right ={
+    hidden:{   
+      opacity:0
+    },
+    show:{
+      opacity:1,
+      transition:{
+        duration:1.1,
+        type: "spring", stiffness: 300
+      }
+    },
+  }
+  const variant={
+    offscreen: {
+      y: 300
+    },
+    onscreen: {
+      y: 50,
+      rotate: -10,
+      transition: {
+        type: "spring",
+        bounce: 0.4,
+        duration: 0.8
+      }
+    }
+  }
   return (
-    <div className="flex flex-col font-fira bg-secondary py-12 px-6 md:px-12 items-start gap-6  justify-between ">
+    <motion.div initial="offscreen"
+    whileInView="onscreen"
+    viewport={{ once: true, amount: 0.8 }}
+      className="flex flex-col font-fira bg-secondary py-12 px-6 md:px-12 items-start gap-6  justify-between ">
       <p className="text-3xl after:h-[1px] after:absolute relative after:w-[200px] after:bg-slate-500 after:top-5 after:ml-5  ">
         <span className="text-primary mr-4">
           02.
@@ -110,7 +154,13 @@ function Work () {
 
       {
         projects.map((project)=>(
-<div key={project.id} className="flex relative  flex-col gap-4 bg-transparent-200  rounded z-10 py-6">
+<motion.div 
+
+key={project.id} 
+variants={left}
+initial='hidden'
+whileInView='show'
+className="flex relative  flex-col gap-4 bg-transparent-200  rounded z-10 py-6">
         <p className=" px-4 text-primary font-mono">Featured Project </p>
         <p className="px-4 text-white font-bold text-3xl">{project.name}</p>
 
@@ -139,25 +189,28 @@ function Work () {
             <FiExternalLink className="hover:text-primary cursor-pointer transition" />
           </Link>
         </div>
-        <div className="h-[100%] w-[100%]  absolute  bg-transparent-200 md:left-[50%] md:w-[85%] -z-10  md:opacity-100 opacity-10 cursor-pointer lg:left-[100%] ">
+        <motion.div 
+       
+        className="h-[100%] w-[100%]  absolute  bg-transparent-200 md:left-[50%] md:w-[85%] -z-10  md:opacity-100 opacity-10 cursor-pointer lg:left-[100%] ">
           <img src={project.image} className="" alt="project  photos " />
-        </div>
+        </motion.div>
         <motion.div
           whileHover={{opacity: 0}}
+         
           className="  cursor-pointer min-h-[290px]  w-[100%] absolute bg-primary opacity-20 md:left-[50%] hidden md:flex md:w-[85%]  lg:left-[100%] -z-10 "
         />
-      </div>
+      </motion.div>
         ))
       }
 
-      <p className="text-3xl after:h-[1px] after:absolute relative after:w-[200px] after:bg-slate-500 after:top-5 after:ml-5 after:hidden ">
+      {/* <p className="text-3xl after:h-[1px] after:absolute relative after:w-[200px] after:bg-slate-500 after:top-5 after:ml-5 after:hidden ">
         <span className="text-primary mr-4">
           03.
         </span>
         <span className="text-white ">
         Other Noteworthy Projects
         </span>
-      </p>
+      </p> */}
     <div>
       {/* when you have alot of amazing website use it */}
     {/* <div className='grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center'>
@@ -168,7 +221,7 @@ function Work () {
     </div> */}
     </div>
 
-    </div>
+    </motion.div>
   );
 }
 

@@ -2,9 +2,60 @@ import React from 'react';
 import me from '../assets/pic1.jpg';
 import {motion} from 'framer-motion';
 function About () {
+  const variant={
+    offscreen: {
+      y: 300
+    },
+    onscreen: {
+      y: 50,
+      rotate: -10,
+      transition: {
+        type: "spring",
+        bounce: 0.4,
+        duration: 0.8
+      }
+    }
+  }
+  const left ={
+    hidden:{
+      opacity:0,
+      scale:0
+    },
+    show:{
+      opacity:1,
+      scale:1,
+      transition:{
+        duration:1.4,
+        type: "spring", stiffness: 100
+      }
+    },
+  }
+  const right ={
+    hidden:{
+      x:100,
+      opacity:0
+    },
+    show:{
+      x:0,
+      opacity:1,
+      transition:{
+        duration:1.1,
+        type: "spring", stiffness: 300
+      }
+    },
+  }
   return (
-    <div id='about' className="flex font-fira bg-secondary py-12 px-6 md:px-12 items-start gap-6 flex-col justify-between md:flex-row">
-      <div className="max-w-[450px] flex gap-4 flex-col">
+    <div 
+    id='about'
+    initial="offscreen"
+    whileInView="onscreen"
+    viewport={{ once: true, amount: 0.8 }}
+     className="flex font-fira bg-secondary py-12 px-6 md:px-12 items-start gap-6 flex-col justify-between md:flex-row">
+      <motion.div className="max-w-[450px] flex gap-4 flex-col" 
+      variants={left}
+      initial='hidden'
+      whileInView='show'
+      >
         <p className="text-3xl after:h-[1px] after:absolute relative after:w-[200px] after:bg-slate-500 after:top-5 after:ml-5">
           <span className="text-primary mr-4">
             01.
@@ -52,8 +103,12 @@ function About () {
             </li>
           </ul>
         </div>
-      </div>
-      <div className='m-auto'>
+      </motion.div>
+      <motion.div className='m-auto' 
+    
+      variants={right}
+      initial='hidden'
+      whileInView='show'>
         <div className="relative ">
 
         <motion.div  whileHover={{x:-15,y:-15}}className="h-[100%]  rounded top-4   w-[100%] border-4   left-4 border-primary absolute  " >
@@ -71,7 +126,7 @@ function About () {
           </div>
          
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }

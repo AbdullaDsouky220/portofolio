@@ -1,8 +1,27 @@
 import React from 'react';
+import {motion} from 'framer-motion';
 
 function Contact () {
+  const contactVariant={
+    hidden:{
+      x:100,
+
+    },
+    show:{
+      x:0,
+      duration:1.4,
+      type:'spring',
+      stiffness: 300
+    }
+
+  }
   return (
-    <div className="flex flex-col gap-4 items-center py-16 ">
+    
+    <motion.div 
+    variants={contactVariant}
+    initial='hidden'
+    whileInView='show'
+    className="flex flex-col gap-4 items-center py-16 ">
       <p className="text-xl  relative text-primary font-mono">
         <span className="text-primary mr-4">
           04.
@@ -25,7 +44,7 @@ function Contact () {
         Say Hello 🤗🤗
 
       </p>
-    </div>
+    </motion.div>
   );
 }
 
